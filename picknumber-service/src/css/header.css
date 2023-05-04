@@ -1,0 +1,22 @@
+.header_wrap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.header_wrap .header_logo{
+    width: 150px;
+    height: auto;
+}
+
+.header_wrap .header_logo img{
+    width: 100%;
+}
+
+.header_wrap .header_title{
+    font-weight: 600;
+    font-size: 28px;
+}
