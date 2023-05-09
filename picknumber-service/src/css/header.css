@@ -5,6 +5,9 @@
     justify-content: space-between;
     padding: 1rem;
     box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    -webkit-box-shadow: 2px 6px 8px -3px rgba(133,133,133,0.56); 
+box-shadow: 2px 6px 8px -3px rgba(133,133,133,0.56);
 }
 
 .header_wrap .header_logo{
@@ -20,3 +23,5 @@
     font-weight: 600;
     font-size: 28px;
 }
+
+

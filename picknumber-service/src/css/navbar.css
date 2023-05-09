@@ -1,0 +1,32 @@
+/* navbar */
+
+.container_wrap{
+    margin: 8rem auto;
+}
+
+
+.container_wrap .service-btn{
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #272727;
+    height: 60px;
+    font-size: 26px;
+}
+
+.container_wrap .service-btn:hover{
+    background-color: #de6d54;
+    color: #fff;
+}
+
+.container_wrap .service-logout{
+    background-color: #bbbbbb;
+    color: #fff;
+    height: 60px;
+    font-size: 26px;
+    border-radius: 12px;
+}
+
+.container_wrap .service-logout:hover{
+    background-color: #1565c0;
+}
