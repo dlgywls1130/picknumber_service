@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import '../css/header.css'; // Header에 대한 CSS 파일
-import logo from '../image/header_logo.png'
+import '../../css/header.css'; // Header에 대한 CSS 파일
+import logo from '../../image/header_logo.png'
 
 const Header = ({ title }) => {
   return (

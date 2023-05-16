@@ -1,13 +1,17 @@
 import React from 'react';
-import { Route, Routes, Link} from 'react-router-dom';
+import { Route, Routes, Link, NavLink, useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import Header from './Header';
-import KioskNavbar from '../pages/KioskNavbar';
-import IndicatorNavbar from '../pages/IndicatorNavbar';
-import PagerNavbar from '../pages/PagerNavbar';
-import ReservationNavbar from '../pages/ReservationNavbar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+
+import Header from './common/Header';
 import '../css/navbar.css';
+
+import Kiosk from './Service/Kiosk/Kiosk';
+import Indicator from './Service/Indicator/Indicator';
+import Pager from './Service/Pager/Pager';
+import Reservation from './Service/Reservation/Reservation';
 
 const theme = createTheme({
   breakpoints: {
@@ -21,70 +25,76 @@ const theme = createTheme({
   },
 });
 
-function NavbarNav() {
+const pages = [
+  {
+    id: 'kiosk',
+    title: '발권기',
+    button1Text: 'KIOSK 1',
+    button2Text: 'KIOSK 2',
+  },
+  {
+    id: 'indicator',
+    title: '표시기',
+    button1Text: '통합표시기 1',
+    button2Text: '통합표시기 2',
+  },
+  {
+    id: 'pager',
+    title: '호출기',
+    button1Text: '창구 ',
+    button2Text: '창구',
+  },
+  {
+    id: 'reservation',
+    title: '예약',
+    button1Text: '공과금',
+  },
+];
 
+function Navbar() {
+  const navigate = useNavigate();
 
-  const menus = [
-    {
-      id: 1,
-      text: "발권기",
-      url: "/pages/kioskNavbar"
-    },
-    {
-      id: 2,
-      text: "표시기",
-      url: "/pages/indicatorNavbar"
-    },
-    {
-      id: 3,
-      text: "호출기",
-      url: "/pages/pagerNavbar"
-    },
-    {
-      id: 4,
-      text: "예약",
-      url: "/pages/reservationNavbar"
-    },
-    {
-      id: 5,
-      text: "로그아웃",
-      url: "/"
-    }
-  ];
+  const handleLogout = () => {
+    navigate('/');
+  };
 
   const pageTitle = '지능형 키오스크 시스템';
 
   return (
     <ThemeProvider theme={theme}>
       <Header title={pageTitle} />
-      <Container component="main" maxWidth="xl" className='container_wrap'>
-        <nav>
-          <div>
-            <ul>
-              {menus.map(menu => (
-                <li key={menu.id} className="nav-item">
-                  <Link to={menu.url} className="nav-link text-white">
-                    {menu.text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
+      <Container component="main" maxWidth="xl" className="container_wrap">
+        <Box className="navbar-page" sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
+        <Routes>
+            {/* Navbar 버튼에 대한 Route를 추가합니다. */}
+            <Route path="/kiosk" element={<Kiosk />} />
+            <Route path="/indicator" element={<Indicator />} />
+            <Route path="/pager" element={<Pager />} />
+            <Route path="/reservation" element={<Reservation />} />
+          </Routes>
+          {pages.map((prod) => (
+            <Button className="service-btn" key={prod.id}>
+              <NavLink
+                to={`/${prod.id}`}
+                activeClassName="active"
+                state={{
+                  title: prod.title,
+                  button1Text: prod.button1Text,
+                  button2Text: prod.button2Text,
+                }}
+                style={{ textDecoration: 'none' }}
+              >
+                {prod.title}
+              </NavLink>
+            </Button>
+          ))}
+          <Button className="service-logout" onClick={handleLogout}>
+            로그아웃
+          </Button>
+        </Box>
       </Container>
     </ThemeProvider>
   );
 }
-function Navbar() {
-  return (
-    <Routes>
-      <Route path="/" element={<NavbarNav />} />
-      <Route path="/pages/kiosk" element={<KioskNavbar />} index/>
-      <Route path="/pages/indicator" element={<IndicatorNavbar />} index/>
-      <Route path="/pages/pager" element={<PagerNavbar />} index/>
-      <Route path="/pages/reservation" element={<ReservationNavbar />} index/>
-    </Routes>
-  );
-}
-export default Navbar
 
+export default Navbar;
