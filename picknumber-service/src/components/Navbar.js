@@ -65,13 +65,6 @@ function Navbar() {
       <Header title={pageTitle} />
       <Container component="main" maxWidth="xl" className="container_wrap">
         <Box className="navbar-page" sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
-        <Routes>
-            {/* Navbar 버튼에 대한 Route를 추가합니다. */}
-            <Route path="/kiosk" element={<Kiosk />} />
-            <Route path="/indicator" element={<Indicator />} />
-            <Route path="/pager" element={<Pager />} />
-            <Route path="/reservation" element={<Reservation />} />
-          </Routes>
           {pages.map((prod) => (
             <Button className="service-btn" key={prod.id}>
               <NavLink

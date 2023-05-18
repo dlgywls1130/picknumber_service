@@ -1,0 +1,75 @@
+/* page btn */
+
+.button_wrap .navbar_btn {
+  width: 50vw;
+  height: 10vh;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  font-size: 2rem;
+  color: #222;
+}
+/* kiosk media */
+
+.kiosk_media {
+  width: 100%;
+  height: 607px;
+}
+
+.kiosk .kiosk_notice {
+  font-size: 52px;
+  font-weight: bold;
+}
+
+.kiosk .kiosk_standby {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.kiosk .kiosk_standby .standby_wrapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kiosk .kiosk_standby .standby_wrapp .standby_title {
+  font-size: 60px;
+  font-weight: bold;
+  color: #262626;
+  margin: 0;
+}
+.kiosk .kiosk_standby .standby_wrapp .standby_number {
+  font-size: 200px;
+  font-weight: bold;
+  color: #014099;
+  margin: 0;
+}
+
+.kiosk .kiosk_btn_wrap {
+  width: 935px;
+  height: 498px;
+  border-radius: 24px;
+  background-image: linear-gradient(to top, #a9a4a4, #eeeeef),
+    linear-gradient(to bottom, #000, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto 0;
+}
+
+.kiosk_btn_wrap .kiosk_btn_title {
+  width: 898px;
+  height: 460px;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 106, 224, 1) 0%,
+    rgba(1, 64, 153, 1) 100%
+  );
+  color: #fff;
+  font-size: 179px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
